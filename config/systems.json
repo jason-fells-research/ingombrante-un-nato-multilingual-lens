@@ -1,0 +1,92 @@
+{
+  "translation_providers": {
+    "openai": {
+      "endpoint": "https://api.openai.com/v1/chat/completions",
+      "model": "gpt-4",
+      "supports_context": true
+    },
+    "azure": {
+      "endpoint": "https://api.cognitive.microsofttranslator.com",
+      "supports_context": false
+    },
+    "google": {
+      "endpoint": "https://translation.googleapis.com/language/translate/v2",
+      "supports_context": false
+    }
+  },
+  "supported_languages": {
+    "en": {
+      "name": "English",
+      "rtl": false,
+      "cultural_variants": ["us", "uk", "au"]
+    },
+    "es": {
+      "name": "Spanish",
+      "rtl": false,
+      "cultural_variants": ["es", "mx", "ar"]
+    },
+    "ar": {
+      "name": "Arabic",
+      "rtl": true,
+      "cultural_variants": ["sa", "eg", "ae"]
+    },
+    "ja": { "name": "Japanese", "rtl": false, "cultural_variants": ["jp"] },
+    "fr": { "name": "French", "rtl": false, "cultural_variants": ["fr", "ca"] },
+    "de": {
+      "name": "German",
+      "rtl": false,
+      "cultural_variants": ["de", "at", "ch"]
+    }
+  },
+  "integration_types": {
+    "widget": {
+      "embed_type": "javascript",
+      "real_time": true,
+      "ui_components": ["chat", "overlay", "popup"]
+    },
+    "api": {
+      "protocols": ["rest", "graphql", "websocket"],
+      "authentication": ["api_key", "oauth2", "jwt"]
+    },
+    "webhook": {
+      "events": ["translation_complete", "error", "context_detected"],
+      "formats": ["json", "xml"]
+    },
+    "sdk": {
+      "platforms": ["web", "mobile", "desktop"],
+      "languages": ["javascript", "python", "java", "swift"]
+    }
+  },
+  "cultural_contexts": {
+    "formality": {
+      "formal": { "honorifics": true, "indirect_speech": true },
+      "casual": { "honorifics": false, "indirect_speech": false },
+      "business": { "honorifics": true, "technical_terms": true }
+    },
+    "communication_style": {
+      "direct": { "explicit_meaning": true, "context_dependent": false },
+      "indirect": { "explicit_meaning": false, "context_dependent": true },
+      "high_context": { "cultural_references": true, "implicit_meaning": true }
+    }
+  },
+  "system_configurations": {
+    "customer_support": {
+      "priority_languages": ["en", "es", "fr"],
+      "formality": "business",
+      "real_time": true,
+      "integration": "widget"
+    },
+    "social_platform": {
+      "priority_languages": ["en", "es", "ja", "ar"],
+      "formality": "casual",
+      "real_time": true,
+      "integration": "api"
+    },
+    "enterprise_communication": {
+      "priority_languages": ["en", "de", "fr", "ja"],
+      "formality": "formal",
+      "real_time": false,
+      "integration": "sdk"
+    }
+  }
+}
